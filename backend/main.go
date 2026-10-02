@@ -101,7 +101,7 @@ const (
 
 var (
 	backCount          int    = 0
-	botToken           string = "7243437002:AAEevTNhxczk_5r6PyaAgI4uGvl9T2Vdkr8"
+	botToken           string = os.Getenv("BOT_TOKEN")
 	dbClient           *mongo.Client
 	distr_collection   *mongo.Collection
 	user_collection    *mongo.Collection

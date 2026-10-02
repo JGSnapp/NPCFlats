@@ -1,3 +1,5 @@
+import os
+
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, WebAppInfo
 from telegram.ext import Application, CommandHandler, ContextTypes
 
@@ -9,8 +11,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Buy, develop and sell apartments in a new exciting real estate owner simulator! \n \n Покупай, обустраивай и продавай квартиры в новом захватывающем симуляторе владельца недвижимости!", reply_markup=reply_markup)
 
 def main():
-    # Замените 'YOUR_TOKEN' на ваш токен бота
-    application = Application.builder().token('').build()
+    application = Application.builder().token(os.environ["BOT_TOKEN"]).build()
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
     application.run_polling()

@@ -11,11 +11,15 @@ services:
 
   telegram:
     build: ./telegram
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
     ports:
       - 5000:5000
 
   backend:
     build: ./backend
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
     ports:
       - 8080:8080
     links:
